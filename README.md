@@ -4,4 +4,5 @@
 
 ### Ход работы:
 1. Добавили приложения accounts, profiles, sellers, shop, common
-2. Создали абстрактную модель BaseModel
+2. Переопределили get_queryset, добавили get_or_none и создали абстрактную модель BaseModel
+3. Переопределили delete для поддержки мягкого и жесткого удаления и создали абстрактную модель IsDeletedModel
