@@ -13,6 +13,12 @@ class RegisterAPIView(APIView):
         if serializer.is_valid():
             user = serializer.save()
             refresh = RefreshToken.for_user(user)
+
+            if user.is_staff:
+                refresh.payload.update({'group': 'admin'})
+            else:
+                refresh.payload.update({'group': 'user', 'role': user.account_type})
+
             data = {
                 'refresh': str(refresh),
                 'access': str(refresh.access_token)
