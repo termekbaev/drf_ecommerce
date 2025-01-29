@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'drf_spectacular',
+    'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist',
     'apps.accounts',
     'apps.profiles',
     'apps.sellers',
@@ -132,6 +134,9 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
@@ -139,4 +144,14 @@ SPECTACULAR_SETTINGS = {
     "TITLE": "My First API",
     "VERSION": "0.0.1",
     "SERVE_INCLUDE_SCHEMA": False,
+}
+
+from datetime import timedelta
+
+
+SIMPLE_JWT = {
+    'ROTATE_REFRESH_TOKENS': True,
+    'BLACKLIST_AFTER_ROTATION': True,
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=7),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=30),
 }

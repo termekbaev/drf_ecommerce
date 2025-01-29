@@ -17,3 +17,4 @@
    - Модель заказов foreignkey к user, наследуемая от BaseModel
    - Модель позиции товара в заказе foreignkey к user, order и product, наследуемая от BaseModel
 7. Добавили автоматическую документацию drf-spectacular
+8. Добавили JWT аутентификацию и авторизацию
