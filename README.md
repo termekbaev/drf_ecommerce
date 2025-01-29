@@ -14,3 +14,5 @@
 - Модель продавца связанного с пользователем onetoone, наследуемую от BaseModel
 - Модель категории, наследуемую от BaseModel
 - Модель товара foreignkey к seller и к category, наследуемая от IsDeletedModel, значит будет иметь доп. поля для мягкого удаления
+- Модель заказов foreignkey к user, наследуемая от BaseModel
+- Модель позиции товара в заказе foreignkey к user, order и product, наследуемая от BaseModel
