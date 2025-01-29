@@ -56,7 +56,7 @@ class Product(IsDeletedModel):
     desc = models.TextField()
     price_old = models.DecimalField(max_digits=10, decimal_places=2, null=True)
     price_current = models.DecimalField(max_digits=10, decimal_places=2)
-    category = models.ForeignKey(Category, on_delete=CASCADE, related_name="products")
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="products")
     in_stock = models.IntegerField(default=5)
 
     # Only 3 images are allowed
